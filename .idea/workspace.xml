@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59e343a4-70b3-4333-85db-acc53d2bbafb" name="Changes" comment="suprasky">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="59e343a4-70b3-4333-85db-acc53d2bbafb" name="Changes" comment="lol 3">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,12 +174,48 @@
       <option name="project" value="LOCAL" />
       <updated>1727100925909</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="lol">
+      <option name="closed" value="true" />
+      <created>1727101412649</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727101412649</updated>
+    </task>
+    <task id="LOCAL-00004" summary="lol 1">
+      <option name="closed" value="true" />
+      <created>1727101428853</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727101428853</updated>
+    </task>
+    <task id="LOCAL-00005" summary="lol 2">
+      <option name="closed" value="true" />
+      <created>1727101515042</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727101515042</updated>
+    </task>
+    <task id="LOCAL-00006" summary="lol 3">
+      <option name="closed" value="true" />
+      <created>1727101614377</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727101614377</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="supra" />
     <MESSAGE value="suprasky" />
-    <option name="LAST_COMMIT_MESSAGE" value="suprasky" />
+    <MESSAGE value="lol" />
+    <MESSAGE value="lol 1" />
+    <MESSAGE value="lol 2" />
+    <MESSAGE value="lol 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="lol 3" />
   </component>
 </project>
