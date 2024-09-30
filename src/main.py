@@ -2,17 +2,17 @@ class Product:
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self._price = price
+        self.__price = price
         self.quantity = quantity
 
     @property
     def price(self):
-        return self._price
+        return self.__price
 
     @price.setter
     def price(self, new_price):
         if new_price > 0:
-            self._price = new_price
+            self.__price = new_price
         else:
             print("Цена не должна быть нулевая или отрицательная")
 
@@ -25,6 +25,14 @@ class Product:
             product_data["quantity"],
         )
 
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        if isinstance(other, Product):
+            return (self.price * self.quantity) + (other.price * other.quantity)
+        return NotImplemented
+
 
 class Category:
     def __init__(self, name, description, products=None):
@@ -35,7 +43,7 @@ class Category:
 
     def add_product(self, product):
         self._products.append(product)
-        self._product_count += 1
+        self.product_count += 1
 
     @property
     def products(self):
@@ -48,6 +56,13 @@ class Category:
     @property
     def product_count(self):
         return self._product_count
+
+    @product_count.setter
+    def product_count(self, value):
+        self._product_count = value
+
+    def __str__(self):
+        return f"{self.name}, количество продуктов: {self.product_count} шт."
 
 
 if __name__ == "__main__":
