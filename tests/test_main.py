@@ -1,48 +1,37 @@
-import pytest
-
-from src.main import Category, Product
+from src.main import Product, Category
 
 
-@pytest.fixture
-def product1():
-    return Product("Product1", "Description1", 10.99, 5)
+def test_add_product():
+    product = Product("Test Product", "Test Description", 1000.0, 10)
+    category = Category("Test Category", "Test Description")
+    category.add_product(product)
+
+    assert len(category._products) == 1
+    assert category._products[0].name == "Test Product"
 
 
-@pytest.fixture
-def product2():
-    return Product("Product2", "Description2", 20.99, 2)
+def test_product_price_setter_positive():
+    product = Product("Test Product", "Test Description", 1000.0, 10)
+    product.price = 500
+    assert product.price == 500
 
 
-@pytest.fixture
-def category(product1, product2):
-    return Category("Category1", "Description1", [product1, product2])
+def test_product_price_setter_negative():
+    product = Product("Test Product", "Test Description", 1000.0, 10)
+    product.price = -500
+    assert product.price == 1000
 
 
-def test_product_initialization(product1):
-    assert product1.name == "Product1"
-    assert product1.description == "Description1"
-    assert product1.price == 10.99
-    assert product1.quantity == 5
+def test_category_product_count():
+    product1 = Product("Product 1", "Description 1", 1000.0, 5)
+    product2 = Product("Product 2", "Description 2", 1500.0, 3)
+    category = Category("Test Category", "Test Description", [product1, product2])
+
+    assert category.product_count == 2
 
 
-def test_total_products(category):
-    assert Category.total_products == 2
+def test_category_products():
+    product1 = Product("Product 1", "Description 1", 1000.0, 5)
+    category = Category("Test Category", "Test Description", [product1])
 
-
-def test_category_initialization(category):
-    assert category.name == "Category1"
-    assert category.description == "Description1"
-    assert len(category.products) == 2
-
-
-def test_total_categories(category):
-    assert Category.total_categories == 3
-
-
-@pytest.fixture
-def other_category():
-    return Category("Category2", "Description2", [])
-
-
-def test_increment_total_categories(other_category):
-    assert Category.total_categories == 4
+    assert category.products == "Product 1, 1000.0 руб. Остаток: 5 шт."
