@@ -47,7 +47,6 @@ def test_add_product_to_category():
     assert category.products == expected_product_list
 
 
-
 def test_product_category_str():
     product1 = Product("Product 1", "Description 1", 1000, 5)
     product2 = Product("Product 2", "Description 2", 2000, 3)
