@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59e343a4-70b3-4333-85db-acc53d2bbafb" name="Changes" comment="log 3">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="59e343a4-70b3-4333-85db-acc53d2bbafb" name="Changes" comment="log 3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +71,7 @@
       <recent name="C:\Users\Student\PycharmProjects\pythonProject" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
+  <component name="RunManager" selected="Python tests.Python tests in test_main.py">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -181,8 +178,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python tests.Python tests in test_main.py" />
+        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python tests.Python tests for test_main.test_new_product_classmethod" />
         <item itemvalue="Python tests.Python tests for test_main.test_product_price_setter_negative" />
         <item itemvalue="Python tests.Python tests in C:/Users/Student/PycharmProjects/pythonProject/tests/test_mainof14.2.py" />

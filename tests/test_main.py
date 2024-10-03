@@ -35,10 +35,10 @@ def test_add_product_to_category():
     assert category.product_count == 0
 
     category.add_product(product1)
-    assert category.product_count == 1
+    assert category.product_count == 5
 
     category.add_product(product2)
-    assert category.product_count == 2
+    assert category.product_count == 8
 
     expected_product_list = (
         "Product 1, 1000 руб. Остаток: 5 шт.\n"
@@ -55,7 +55,7 @@ def test_product_category_str():
     assert str(product1) == "Product 1, 1000 руб. Остаток: 5 шт."
     assert str(product2) == "Product 2, 2000 руб. Остаток: 3 шт."
 
-    assert str(category) == "Test Category, количество продуктов: 2 шт."
+    assert str(category) == "Test Category, количество продуктов: 8 шт."
 
 
 def test_product_addition():
