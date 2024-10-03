@@ -39,11 +39,9 @@ class Category:
         self.name = name
         self.description = description
         self._products = products if products else []
-        self._product_count = len(self._products)
 
     def add_product(self, product):
         self._products.append(product)
-        self.product_count += 1
 
     @property
     def products(self):
@@ -55,15 +53,11 @@ class Category:
 
     @property
     def product_count(self):
-        return self._product_count
-
-    @product_count.setter
-    def product_count(self, value):
-        self._product_count = value
+        total_quantity = sum(product.quantity for product in self._products)
+        return total_quantity
 
     def __str__(self):
         return f"{self.name}, количество продуктов: {self.product_count} шт."
-
 
 
 if __name__ == "__main__":
@@ -84,7 +78,7 @@ if __name__ == "__main__":
     category1.add_product(product4)
     print("\nПосле добавления продукта:")
     print(category1.products)
-    print(f"Общее количество товаров: {category1.product_count}")
+    print(f"Общее количество товаров: {category1.product_count} шт.")
 
     new_product = Product.new_product(
         {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,

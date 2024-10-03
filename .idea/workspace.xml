@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59e343a4-70b3-4333-85db-acc53d2bbafb" name="Changes" comment="update 14.2">
+    <list default="true" id="59e343a4-70b3-4333-85db-acc53d2bbafb" name="Changes" comment="log 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Developer" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +64,7 @@
     &quot;Python.mainof14.2.executor&quot;: &quot;Run&quot;,
     &quot;Python.test_mainof14.2.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#3 on Developer&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#4 on dev__1&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
@@ -75,7 +74,7 @@
       <recent name="C:\Users\Student\PycharmProjects\pythonProject" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in test_main.py">
+  <component name="RunManager" selected="Python.main (1)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -182,8 +181,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in test_main.py" />
         <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python tests.Python tests in test_main.py" />
         <item itemvalue="Python tests.Python tests for test_main.test_new_product_classmethod" />
         <item itemvalue="Python tests.Python tests for test_main.test_product_price_setter_negative" />
         <item itemvalue="Python tests.Python tests in C:/Users/Student/PycharmProjects/pythonProject/tests/test_mainof14.2.py" />
@@ -286,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727705602446</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="log 3">
+      <option name="closed" value="true" />
+      <created>1727945067324</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727945067324</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -299,6 +306,9 @@
     <MESSAGE value="lol 4" />
     <MESSAGE value="update 14.2 2 attempt" />
     <MESSAGE value="update 14.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 14.2" />
+    <MESSAGE value="6" />
+    <MESSAGE value="log 5" />
+    <MESSAGE value="log 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="log 3" />
   </component>
 </project>
