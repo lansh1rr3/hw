@@ -1,72 +1,98 @@
-from src.main import Product, Category
+import pytest
+
+from src.main import Category, LawnGrass, Product, Smartphone
 
 
-def test_product_price_getter_setter():
-    product = Product("Test Product", "Description", 1000, 10)
-    assert product.price == 1000
+def test_product_initialization() -> None:
+    product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет", 180000.0, 5)
 
-    product.price = 1500
-    assert product.price == 1500
-
-    product.price = -500
-    assert product.price == 1500
+    assert product.name == "Samsung Galaxy S23 Ultra"
+    assert product.description == "256GB, Серый цвет"
+    assert product.price == 180000.0
+    assert product.quantity == 5
 
 
-def test_new_product_classmethod():
-    product_data = {
-        "name": "New Product",
-        "description": "New description",
-        "price": 5000,
-        "quantity": 20
-    }
-    new_product = Product.new_product(product_data)
+def test_product_price_setter_positive_value() -> None:
+    product = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    product.price = 200000.0
 
-    assert new_product.name == "New Product"
-    assert new_product.description == "New description"
-    assert new_product.price == 5000
-    assert new_product.quantity == 20
+    assert product.price == 200000.0
 
 
-def test_add_product_to_category():
-    product1 = Product("Product 1", "Description 1", 1000, 5)
-    product2 = Product("Product 2", "Description 2", 2000, 3)
-    category = Category("Test Category", "Category description")
+def test_product_addition() -> None:
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    total_price = product1.price * product1.quantity + product2.price * product2.quantity
+    assert total_price == (180000.0 * 5 + 210000.0 * 8)
 
-    assert category.product_count == 0
 
-    category.add_product(product1)
-    assert category.product_count == 5
+def test_product_addition_invalid_type() -> None:
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет", 180000.0, 5)
 
-    category.add_product(product2)
-    assert category.product_count == 8
+    with pytest.raises(TypeError):
+        _ = product1 + 10
 
-    expected_product_list = (
-        "Product 1, 1000 руб. Остаток: 5 шт.\n"
-        "Product 2, 2000 руб. Остаток: 3 шт."
+
+def test_category_initialization() -> None:
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    category = Category("Смартфоны", "Различные модели смартфонов", [product1, product2])
+    assert category.name == "Смартфоны"
+    assert category.description == "Различные модели смартфонов"
+    assert len(category.products) == 2
+
+
+def test_category_add_product() -> None:
+    category = Category("Смартфоны", "Различные модели смартфонов")
+    product = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+    category.add_product(product)
+    assert len(category.products) == 1
+
+
+def test_category_add_invalid_product() -> None:
+    category = Category("Смартфоны", "Различные модели смартфонов")
+
+    with pytest.raises(TypeError):
+        category.add_product("Not a product")
+
+
+def test_smartphone_initialization() -> None:
+    smartphone = Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
     )
-    assert category.products == expected_product_list
+
+    assert smartphone.name == "Samsung Galaxy S23 Ultra"
+    assert smartphone.efficiency == 95.5
+    assert smartphone.model == "S23 Ultra"
+    assert smartphone.memory == 256
+    assert smartphone.color == "Серый"
 
 
-def test_product_category_str():
-    product1 = Product("Product 1", "Description 1", 1000, 5)
-    product2 = Product("Product 2", "Description 2", 2000, 3)
-    category = Category("Test Category", "Category description", [product1, product2])
+def test_lawngrass_initialization() -> None:
+    grass = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
 
-    assert str(product1) == "Product 1, 1000 руб. Остаток: 5 шт."
-    assert str(product2) == "Product 2, 2000 руб. Остаток: 3 шт."
-
-    assert str(category) == "Test Category, количество продуктов: 8 шт."
+    assert grass.name == "Газонная трава"
+    assert grass.country == "Россия"
+    assert grass.germination_period == "7 дней"
+    assert grass.color == "Зеленый"
 
 
-def test_product_addition():
-    product1 = Product("Product 1", "Description 1", 1000, 5)
-    product2 = Product("Product 2", "Description 2", 2000, 3)
+def test_product_addition_same_type() -> None:
+    smartphone1 = Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
+    smartphone2 = Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
 
-    total_price = product1 + product2
-    assert total_price == (1000 * 5) + (2000 * 3)
+    total_quantity = smartphone1 + smartphone2
+
+    assert total_quantity == 13
 
 
-def test_negative_price():
-    product = Product("Test Product", "Description", 1000, 10)
-    product.price = -100
-    assert product.price == 1000
+def test_product_addition_different_type() -> None:
+    smartphone = Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
+    grass = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+
+    with pytest.raises(TypeError):
+        _ = smartphone + grass
