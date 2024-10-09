@@ -1,29 +1,42 @@
-class Product:
+from abc import ABC, abstractmethod
+
+
+class BaseProduct(ABC):
+    @abstractmethod
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.__price = price
+        self._price = price
         self.quantity = quantity
+
+    @abstractmethod
+    def __str__(self):
+        pass
+
+
+class LoggingMixin:
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        print(f"Создан объект класса {self.__class__.__name__} с параметрами: {args}")
+
+
+class Product(LoggingMixin, BaseProduct):
+    product_count = 0
+
+    def __init__(self, name, description, price, quantity):
+        super().__init__(name, description, price, quantity)
+        Product.product_count += 1
 
     @property
     def price(self):
-        return self.__price
+        return self._price
 
     @price.setter
     def price(self, new_price):
         if new_price > 0:
-            self.__price = new_price
+            self._price = new_price
         else:
             print("Цена не должна быть нулевая или отрицательная")
-
-    @classmethod
-    def new_product(cls, product_data):
-        return cls(
-            product_data["name"],
-            product_data["description"],
-            product_data["price"],
-            product_data["quantity"],
-        )
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
@@ -32,89 +45,6 @@ class Product:
         if isinstance(other, Product):
             return (self.price * self.quantity) + (other.price * other.quantity)
         return NotImplemented
-
-
-class Category:
-    def __init__(self, name, description, products=None):
-        self.name = name
-        self.description = description
-        self._products = products if products else []
-
-    def add_product(self, product):
-        self._products.append(product)
-
-    @property
-    def products(self):
-        product_list = [
-            f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self._products
-        ]
-        return "\n".join(product_list)
-
-    @property
-    def product_count(self):
-        total_quantity = sum(product.quantity for product in self._products)
-        return total_quantity
-
-    def __str__(self):
-        return f"{self.name}, количество продуктов: {self.product_count} шт."
-
-
-if __name__ == "__main__":
-    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
-
-    category1 = Category(
-        "Смартфоны",
-        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-        [product1, product2, product3],
-    )
-
-    print("Список товаров:")
-    print(category1.products)
-
-    product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
-    category1.add_product(product4)
-    print("\nПосле добавления продукта:")
-    print(category1.products)
-    print(f"Общее количество товаров: {category1.product_count} шт.")
-
-    new_product = Product.new_product(
-        {
-            "name": "Samsung Galaxy S23 Ultra",
-            "description": "256GB, Серый цвет, 200MP камера",
-            "price": 180000.0,
-            "quantity": 5,
-        }
-    )
-    print("\nСозданный продукт через класс-метод:")
-    print(new_product.name)
-    print(new_product.description)
-    print(new_product.price)
-    print(new_product.quantity)
-
-    print("\nИзменение цены продукта:")
-    new_product.price = 800
-    print(new_product.price)
-    new_product.price = -100
-    print(new_product.price)
-
-
-class Product:
-    product_count = 0
-
-    def __init__(self, name, description, price, quantity):
-        self.name = name
-        self.description = description
-        self.price = price
-        self.quantity = quantity
-        Product.product_count += 1
-
-    def __add__(self, other):
-        if type(self) is type(other):
-            return self.quantity + other.quantity
-        else:
-            raise TypeError("Products must be of the same type to sum them")
 
 
 class Smartphone(Product):
@@ -146,35 +76,33 @@ class Category:
         else:
             raise TypeError("Only products can be added")
 
+    @property
+    def product_count(self):
+        return sum(product.quantity for product in self.products)
+
+    def __str__(self):
+        return f"{self.name}, количество продуктов: {self.product_count} шт."
+
 
 if __name__ == "__main__":
     smartphone1 = Smartphone(
         "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
     )
     smartphone2 = Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
-    smartphone3 = Smartphone("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14, 90.3, "Note 11", 1024, "Синий")
-
     grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
-    grass2 = LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
-
-    smartphone_sum = smartphone1 + smartphone2
-    print(smartphone_sum)
-
-    grass_sum = grass1 + grass2
-    print(grass_sum)
-
-    try:
-        invalid_sum = smartphone1 + grass1
-    except TypeError:
-        print("Возникла ошибка TypeError при попытке сложения")
 
     category_smartphones = Category("Смартфоны", "Высокотехнологичные смартфоны", [smartphone1, smartphone2])
-    category_grass = Category("Газонная трава", "Различные виды газонной травы", [grass1, grass2])
+    category_grass = Category("Газонная трава", "Различные виды газонной травы", [grass1])
 
-    category_smartphones.add_product(smartphone3)
-    print([product.name for product in category_smartphones.products])
+    print("\nКатегории:")
+    print(category_smartphones)
+    print(category_grass)
 
     try:
         category_smartphones.add_product("Not a product")
-    except TypeError:
-        print("Возникла ошибка TypeError при добавлении не продукта")
+    except TypeError as e:
+        print(f"Ошибка: {e}")
+
+    print("\nСложение товаров:")
+    smartphone_sum = smartphone1 + smartphone2
+    print(f"Стоимость всех смартфонов: {smartphone_sum}")
