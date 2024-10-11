@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59e343a4-70b3-4333-85db-acc53d2bbafb" name="Changes" comment="16.2">
+    <list default="true" id="59e343a4-70b3-4333-85db-acc53d2bbafb" name="Changes" comment="17.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
       <recent name="C:\Users\Student\PycharmProjects\pythonProject" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in test_main.py">
+  <component name="RunManager" selected="Python.main (1)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -187,8 +185,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in test_main.py" />
         <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python tests.Python tests in test_main.py" />
         <item itemvalue="Python tests.Python tests for test_main.test_category_initialization" />
         <item itemvalue="Python tests.Python tests for test_main.test_product_addition" />
         <item itemvalue="Python tests.Python tests for test_main.test_product_price_setter_negative_value" />
@@ -323,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728468604034</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="17.1">
+      <option name="closed" value="true" />
+      <created>1728644179244</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728644179244</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -342,6 +348,7 @@
     <MESSAGE value="last update 15.1" />
     <MESSAGE value="16.1" />
     <MESSAGE value="16.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="16.2" />
+    <MESSAGE value="17.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="17.1" />
   </component>
 </project>
